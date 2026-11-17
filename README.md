@@ -13,7 +13,7 @@ A minimal, native Windows 11 taskbar widget written in Rust that displays the li
   - Adapts automatically to Windows dark and light taskbar themes.
   - Supports horizontal drag-and-drop repositioning along the taskbar (saved in `HKCU\Software\AttackSharkX3Battery`).
   - Automatically hides when fullscreen games/videos are active or when an auto-hidden taskbar collapses.
-- **Zero Dependencies at Runtime:** Single standalone `.exe` (~153 KB in release) with an optional **Start with Windows** toggle (`HKCU\Software\Microsoft\Windows\CurrentVersion\Run`).
+- **Zero Dependencies at Runtime:** Single standalone `.exe` (~248 KB in release, statically linked CRT — no Visual C++ Redistributable required) with an optional **Start with Windows** toggle (`HKCU\Software\Microsoft\Windows\CurrentVersion\Run`).
 
 ## Protocol Notes (Attack Shark X3)
 
@@ -39,10 +39,12 @@ The standalone executable will be generated at `target\release\mousebattery.exe`
 
 ## Usage
 
-1. Run `mousebattery.exe` (no console window opens).
-2. `[mouse] 100%` appears directly on the taskbar to the left of the system tray.
-3. **Left-drag** horizontally to adjust its position on the taskbar.
-4. **Right-click** the widget for the context menu:
+1. Download `mousebattery.exe` (or the portable `.zip`) from the [Releases](https://github.com/Arthur-Med/AttackSharkX3-Taskbar-Battery-Monitor/releases) page.
+2. Run `mousebattery.exe` (single standalone executable, no installation or runtime required; no console window opens).
+   - **Windows SmartScreen notice:** Because the binary is not code-signed with a paid certificate, Windows may show *"Windows protected your PC"* on the first launch. Click **More info** → **Run anyway** (or build from source below).
+3. `[mouse] 100%` appears directly on the taskbar to the left of the system tray.
+4. **Left-drag** horizontally to adjust its position on the taskbar.
+5. **Right-click** the widget for the context menu:
    - Live status & last received HID packet (hex)
    - **Start with Windows**
    - **Refresh now**
